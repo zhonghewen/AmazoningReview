@@ -34,18 +34,61 @@
 		<div class="features leftmenuMargin bottomSpace paddingTop">
             <h2>features</h2>
             <div class="featureG">
-                <input class="feature" type="button" value="Battery &radic;">
-                <input class="feature" type="button" value="Bluetooth &radic;">
-                <input class="feature" type="button" value="Comfortability &radic;">
-                <input class="feature" type="button" value="Compatibility &radic;">
-                <input class="feature" type="button" value="Control &radic;">
-                <input class="feature" type="button" value="Durability &radic;">
-                <input class="feature" type="button" value="Noise Cancellation &radic;">   
-                <input class="feature" type="button" value="Price &radic;">  
-                <input class="feature" type="button" value="Stability &radic;">
-                <input class="feature" type="button" value="Service &radic;">
-                <input class="feature" type="button" value="Sound Quality &radic;">
-                <input class="feature" type="button" value="Workout &radic;">
+                <div class="container" >
+                	<input class="feature" type="checkbox" id="Battery" value="Battery" >
+                	<label for="Battery">Battery</label>
+                	<span class="checkmark"></span>
+            	</div>
+                <div class="container">
+                	<input class="feature" type="checkbox" id="Bluetooth" value="Bluetooth" >
+                	<label for="Bluetooth">Bluetooth</label>
+                	<span class="checkmark"></span>
+            	</div>            	
+                <div class="container">
+                	<input class="feature" type="checkbox" id="Comfortability" value="Comfortability" >
+                	<label for="Comfortability">Comfortability</label>
+                	<span class="checkmark"></span>
+            	</div>
+                <div class="container">
+                	<input class="feature" type="checkbox" id="Compatibility" value="Compatibility" >
+                	<label for="Compatibility">Compatibility</label>
+                	<span class="checkmark"></span>
+            	</div>
+                <div class="container">
+                	<input class="feature" type="checkbox" id="Control" value="Control" >
+                	<label for="Control">Control</label>
+                	<span class="checkmark"></span>
+            	</div>
+                <div class="container">
+                	<input class="feature" type="checkbox" id="Durability" value="Durability" >
+                	<label for="Durability">Durability</label>
+                	<span class="checkmark"></span>
+            	</div>
+                <div class="container">
+                	<input class="feature" type="checkbox" id="NoiseCancellation" value="NoiseCancellation" >
+                	<label for="NoiseCancellation">Noise Cancellation</label>
+                	<span class="checkmark"></span>
+            	</div>
+                <div class="container">
+                	<input class="feature" type="checkbox" id="Price" value="Price" >
+                	<label for="Price">Price</label>
+                	<span class="checkmark"></span>
+            	</div> 
+                <div class="container">
+                	<input class="feature" type="checkbox" id="Stability" value="Stability" >
+                	<label for="Stability">Stability</label>
+                	<span class="checkmark"></span>
+            	</div> 
+                <div class="container">
+                	<input class="feature" type="checkbox" id="Service" value="Service" >
+                	<label for="Service">Service</label>
+                	<span class="checkmark"></span>
+            	</div> 
+                <div class="container">
+                	<input class="feature" type="checkbox" id="SoundQuality" value="SoundQuality" >
+                	<label for="SoundQuality">Sound Quality</label>
+                	<span class="checkmark"></span>
+            	</div> 
             </div>			
 		</div>
 
@@ -56,7 +99,7 @@
 		</div>
 
 		<div class="search leftmenuMargin paddingTop">
-			<div>
+			<div class="borderAlign">
 				<div ><h4><span class="resultNum"></span> results</h4></div>
 				<div><h4 >Sort by rating</h4></div>		
 			</div>
@@ -69,7 +112,7 @@
 		<div class="overview card">
 			<h3 class="cardMargin" >Overview of earphone</h3>
 			<h2 class="cardMargin"><span class="resultNum"></span>&nbsp; results</h2>
-			<div class="cardMargin">
+			<div class="cardMargin borderAlign">
 				<p class="axisAnnotation">RATING</p>
 				<div>
 					<div></div>
@@ -197,6 +240,8 @@
 	  </div>
 	</div>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 	<script src="https://d3js.org/d3.v3.min.js"></script>
 	<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 
@@ -278,6 +323,7 @@
 		if (error) throw error;
 
 		var points = data.dots; //this is a list of products
+		var selectedFeature = [];
 
 		//set initial positions
 		points.forEach( function(d) {
@@ -322,7 +368,7 @@
 	    priceSlider.onChange(function(newRange){
 	    	priceRange = newRange;
 	        d3.select("#range-price").html("<h2>&dollar;"+newRange.begin + " &mdash; &dollar;" + newRange.end+"</h2>");
-	        drawbarchart(points, priceRange, ratingRange, reviewRange);
+	        updatebarchart(points, priceRange, ratingRange, reviewRange);
 	    });
 
 	    priceSlider.range(priceMin, priceMax);	
@@ -331,7 +377,7 @@
 	    	ratingRange = newRange;
 
 	        d3.select("#range-rating").html("<h2>"+newRange.begin + " &mdash; " + newRange.end+"</h2>");
-	        drawbarchart(points, priceRange, ratingRange, reviewRange);
+	        updatebarchart(points, priceRange, ratingRange, reviewRange);
 	    });
 
 	    ratingSlider.range(ratingMin, ratingMax);		    
@@ -339,12 +385,23 @@
 	    reviewSlider.onChange(function(newRange){
 	    	reviewRange = newRange;
 	        d3.select("#range-review").html("<h2>"+newRange.begin + " &mdash;" + newRange.end+"</h2>");
-	        drawbarchart(points, priceRange, ratingRange, reviewRange);
+	        updatebarchart(points, priceRange, ratingRange, reviewRange);
 	    });
 
-	    reviewSlider.range(reviewMin, reviewMax);		
+	    reviewSlider.range(reviewMin, reviewMax);	
+
+        function updatebarchart (data, priceRange, ratingRange, reviewRange) {
+
+
+			barchart.selectAll(".bar")
+			.data(data)
+			.attr("class", function(d) { if((d.price>=priceRange.begin)&&(d.price<=priceRange.end)&&(d.avgRating>=ratingRange.begin)&&(d.avgRating<=ratingRange.end)&&(d.review_num>=reviewRange.begin)&&(d.review_num<=reviewRange.end) ) {  return "bar highlight";} else { return "bar dark";} });	  
+
+        }
+
 
 		function drawbarchart(data, priceRange, ratingRange, reviewRange) {
+
 
 			barchart.data(data);
 
@@ -369,16 +426,16 @@
 		      .attr("dy", ".71em")
 		      .style("text-anchor", "end");
 		      // .text("RATING");			
+            var selectBar = barchart.selectAll(".bar");
 
-			var bar = barchart.selectAll(".bar")
+			var bar=barchart.selectAll(".bar")
 			.data(data)
 			.enter().append("rect")
-			.attr("class", function(d) { if((d.price>=priceRange.begin)&&(d.price<=priceRange.end)&&(d.avgRating>=ratingRange.begin)&&(d.avgRating<=ratingRange.end)&&(d.review_num>=reviewRange.begin)&&(d.review_num<=reviewRange.end) ) { console.log(d.price); return "bar highlight";} else {console.log(d.price); return "bar dark";} })
+			.attr("class", function(d) { if((d.price>=priceRange.begin)&&(d.price<=priceRange.end)&&(d.avgRating>=ratingRange.begin)&&(d.avgRating<=ratingRange.end)&&(d.review_num>=reviewRange.begin)&&(d.review_num<=reviewRange.end) ) { return "bar highlight";} else { return "bar dark";} })
             .attr("x", function(d) { return x(d.name); })
             .attr("y", function(d) { return y(d.avgRating); })
             .attr("width", x.rangeBand())
 	        .attr("height", function(d) { return height - y(d.avgRating); });
-
 
 
 			//define legend
@@ -403,7 +460,7 @@
 			.attr("x", function(d,i) {return legendElementWidth*i;})
 			.attr("y", gridSize);
 
-			legend.exit().remove();			    
+			legend.exit().remove();		    
 		};
 
 		drawbarchart(points, priceRange, ratingRange, reviewRange);
@@ -413,17 +470,52 @@
 		//*******************define mouseenter event: filter according to keywords*********************
 		d3.selectAll(".theme").on("mouseenter", function () {
 
-			//console.log(this.value);
-			var value = this.value;
+			// //console.log(this.value);
+			// var value = this.value;
 
-			barchart.selectAll(".bar")
-                .transition()
-                .duration(500)
-        		.attr("class", function(d) { return "bar "+ containTheme(d.reviewList, value);} );
+			// barchart.selectAll(".bar")
+   //              .transition()
+   //              .duration(500)
+   //      		.attr("class", function(d) { return "bar "+ containTheme(d.reviewList, value);} );
         });
 
+
+        d3.selectAll(".feature").on("click", function () {
+        	console.log(this);
+			var value = this.value;        	
+        	var checked = $(this).prop('checked');
+        	console.log(checked);
+
+        	if (checked == true) {
+        		selectedFeature.push(value);
+        		console.log("when checked, the feature list is:"+selectedFeature);
+        		d3.select(this.parentNode).attr("class", "container selected");
+	
+
+        	} else {
+        		//find index of feature list and remove it
+        		var index = selectedFeature.indexOf(value);
+        		if (index > -1) {
+        			selectedFeature.splice(index, 1);
+        		}
+        		console.log("when unchecked, the feature list is:"+selectedFeature);
+
+        		d3.select(this.parentNode).attr("class", "container");
+        	}
+
+			barchart.selectAll(".bar")
+				.attr("class", function(d) { if( containTheme(d.reviewList, selectedFeature)) {  return "bar highlight";} else { return "bar dark";} });	
+			// scatterplot.selectAll(".dot")
+   //              .transition()
+   //              .duration(500)
+   //      		.attr("class", function(d) { return "dot "+ containTheme(d.reviewList, value);} );                  
+
+
+        });
+
+
 		//define filter function
-		function containTheme(reviewList, theme) {
+		function containTheme(reviewList, featureList) {
 			var Comfortability = ["fit","comfortable","hurt","uncomfortable","comfy","size"];
 			var Stability = ["fall out","slide","stay","stability"];
 			var Control = ["easy","ease","control","button"];
@@ -439,51 +531,57 @@
 
 			var wordList = [];	
 
-			if (theme == "All") {
-				return "normal";
-			} else if (theme == "Comfortability") {
-				wordList = Comfortability;
-			} else if (theme == "Stability") {
-				wordList = Stability;
-			} else if (theme == "Control") {
-				wordList = Control;
-			} else if (theme == "Sound Quality") {
-				wordList = SoundQuality;
-			} else if (theme == "Noise Cancellation") {
-				wordList = NoiseCancellation;
-			} else if (theme == "Price") {
-				wordList = Price;
-			} else if (theme == "Compatibility") {
-				wordList = Compatibility;
-			} else if (theme == "Durability") {
-				wordList = Durability;
-			} else if (theme == "Service") {
-				wordList = Service;
-			} else if (theme == "Workout") {
-				wordList = Workout;
-			} else if (theme == "Battery") {
-				wordList = Battery;
-			} else if (theme == "Bluetooth") {
-				wordList = Bluetooth;
-			}
+			if (featureList.length == 0) {
+				return true;
+			} else {
+				for (i = 0; i < featureList.length; i++) {
 
-			for (i=0; i<reviewList.length; i++) {
-				//console.log(reviewList.length);
-				review = reviewList[i].content;
-				review = review.toLowerCase();
+					var feature = featureList[i];
 
-				for (j=0; j<wordList.length; j++) {
-					var word = wordList[j];
-					//console.log(comfortability.length);
+					if (feature == "Comfortability") {
+						wordList = Comfortability;
+					} else if (feature == "Stability") {
+						wordList = Stability;
+					} else if (feature == "Control") {
+						wordList = Control;
+					} else if (feature == "SoundQuality") {
+						wordList = SoundQuality;
+					} else if (feature == "NoiseCancellation") {
+						wordList = NoiseCancellation;
+					} else if (feature == "Price") {
+						wordList = Price;
+					} else if (feature == "Compatibility") {
+						wordList = Compatibility;
+					} else if (feature == "Durability") {
+						wordList = Durability;
+					} else if (feature == "Service") {
+						wordList = Service;
+					} else if (feature == "Battery") {
+						wordList = Battery;
+					} else if (feature == "Bluetooth") {
+						wordList = Bluetooth;
+					}
 
-					if (review.indexOf(word)>=0) {
-						return "highlight";
-						console.log(word);
+					for (i=0; i<reviewList.length; i++) {
+						//console.log(reviewList.length);
+						review = reviewList[i].content;
+						review = review.toLowerCase();
+
+						for (j=0; j<wordList.length; j++) {
+							var word = wordList[j];
+							//console.log(comfortability.length);
+
+							if (review.indexOf(word)>=0) {
+								return true;
+							};
+						}
 					};
-				}
+				};				
+
 			};
 
-			return "normal";
+
+			return false;
 		};
 
         
@@ -561,7 +659,7 @@
 
 
                 //define heat map
-                var heatmapChart = function(theme) {
+                var drawheatmapChart = function(theme) {
 
 
                     //compute colorScale
@@ -610,20 +708,58 @@
 
                 };
 
-                heatmapChart("All");
+                drawheatmapChart("All");
 
+
+		        function updateheatmap (theme) {
+
+                    //compute colorScale
+                    colorScale.domain( [2,buckets-1,5]);
+
+                    var cards = heatmap.selectAll(".sentiment")
+                    .data(reviews.filter(function(d){return productContainTheme(d.content, theme);}))
+                    .attr("x", function(d,i) {return gridSize*(i%24);})
+                    .attr("y", function(d,i) {return gridSize*(parseInt(i/24));})
+                    .attr("rx", 4)
+                    .attr("ry", 4)
+                    .attr("class", "sentiment")
+                    .attr("width", gridSize)
+                    .attr("height", gridSize)
+                    .style("fill", colors[0])
+                    .on("mouseenter", function(d) { tooltip.show(d);})
+                    .on("mouseleave", function(d) { tooltip.hide(d);});
+
+                    cards.transition().duration(500)
+                    .style("fill", function(d) {return colorScale(d.rating);});
+
+                    cards = cards.exit().remove();
+
+                    //append reviews
+                    var top = d3.select(".topRList").selectAll(".review")
+                    .data(reviews.filter(function(d){return productContainTheme(d.content, theme);}).slice(0,3))
+                    .attr("class", "review")
+                    .html(function(d){ return "<span> &ldquo;"+ d.content +"&rdquo; <br>-- by "+ d.author+", "+d.month+ ". "+ d.year+ ", "+ d.rating + " stars</span>";});
+
+                    top.exit().remove();  
+
+
+                    //append reviews
+                    var bottom = d3.select(".bottomRList").selectAll(".review")
+                    .data(reviews.filter(function(d){return productContainTheme(d.content, theme);}).slice(-4,-1))
+                    .attr("class", "review")
+                    .html(function(d){ return "<span> &ldquo;"+ d.content +"&rdquo; <br>-- by "+ d.author+", "+d.month+ ". "+ d.year+ ", "+ d.rating + " stars</span>";});
+
+                    bottom.exit().remove();    
+
+		        }         
+
+                updateheatmap("All");
 
                 //append title
                 d3.select(".productName").html(d.name);
                 d3.select(".productPrice").html("&dollar; "+d.price);
                 d3.select(".productRating").html(d.avgRating);
                 d3.select(".productReview").html(d.review_num);
-
-                
-    		//*******************define mouseenter event*********************
-                d3.selectAll(".theme").on("mouseenter", function () {
-                    heatmapChart(this.value);
-                });
 
                 //define function
                 function productContainTheme(review, theme) {
@@ -681,10 +817,9 @@
                     }
 
                     return false;
-                };  
-  
-
-            
+                };                  
+    		//*******************define mouseenter event*********************
+       
         });
 
 
