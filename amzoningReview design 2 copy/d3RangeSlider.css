@@ -1,0 +1,62 @@
+.slider-container {
+    position: relative;
+    height: 6px;
+    min-width: 20px;
+    border-radius: 6px;
+    background-color: #393E44;
+}
+
+.slider {
+    position: absolute;
+    top: 0px;
+    cursor: move;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #43AEBC;
+    border-image: initial;
+    background: #43AEBC;
+    /*margin:-0.5px;*/
+}
+
+.slider .handle {
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    border: 1px solid #D6CFCF;
+    border-radius: 6px;
+    background: #D6CFCF;
+
+    /* Support for bootstrap */
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.slider .EE {
+    right: -4px;
+    cursor: e-resize;
+}
+
+.slider .WW {
+    cursor: w-resize;
+    left: -4px;
+}
+
+.slider .EE, .slider .WW {
+    top: 50%;
+    margin-top: -5.5px;
+}
+
+.play-container .button{
+    fill-opacity: 0.0;
+    stroke: #AAB;
+    stroke-width: 1.6;
+}
+
+.play-container .play, .play-container .stop {
+    fill: #BCE;
+    stroke: #AAB;
+    stroke-width: 1;
+}
+
+

@@ -1,0 +1,543 @@
+/*Project: Zhonghe's personal website-- version3.0*/
+
+
+/* ------------------------------------------------------------------
+General Styles
+------------------------------------------------------------------ */
+body {
+  background-color: #172B3F;
+  color: #43AEBC;    
+  font-size: 16px;
+  letter-spacing: .5px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; 
+  display: flex; 
+}
+
+h1 {
+  font-size: 24px;
+  text-transform: uppercase;  
+  font-weight: 400;
+
+}
+
+h2 {
+  color: #D6CFCF;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+h3 {
+  text-transform: uppercase;  
+
+}
+
+h4 {
+    margin: 15px 0px 0px 0px;
+    text-transform: uppercase;
+    color: #43AEBC;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+p {
+  font-size: 14px;  
+  color: #D6CFCF;
+  font-weight: 300;  
+  margin: 5px 0px 5px 0px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    color: #17293F;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    color: #1A616A;
+}
+
+.bold {
+  font-weight: 400;
+}
+
+.leftBar {
+  background-color: #111F2F;
+  width: 320px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.scrollbar {
+  overflow-y: auto;
+}
+
+/*.search {
+  visibility: hidden;
+    position: fixed;
+    width: 30%;
+    height: 100vh;
+    z-index: 1;
+}*/
+
+.featureG input{
+  background-color: #17293F;
+  border: 1px solid #17B7B3;
+  color: #17B7B3;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px 0px;
+  text-transform: uppercase;
+}
+
+.featureG input:hover{
+  background-color: #17B7B3;
+  border: 1px solid #17B7B3;
+  color: white;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 5px 10px; 
+  margin: 3px 0px;
+  text-transform: uppercase;
+
+}
+
+.bottomSpace {
+  padding-bottom: 20px;
+  border-bottom: dashed 1px #393E44;  
+}
+
+.paddingTop {
+  padding-top: 10px;
+}
+
+.leftmenuMargin {
+  padding-top: 10px;  
+  width: 80%;
+  margin-left: 35px;  
+}
+
+.search input[type=text] {
+  width: 240px;  
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 14px;
+  border: none;
+  background-color: #393E44;
+  color: #FFFFFF;
+  border-radius: 10px;
+  position: absolute;
+}
+
+.search p{
+  z-index: 1;
+  position: relative;
+  left: 225px;
+  top: 13px;
+  font-size: 12px;  
+  color: #FFFFFF;  
+}
+
+.resultList p{
+  margin-top: 0px;
+    z-index: 1;
+    position: relative;
+    top: 0px;
+    font-size: 12px;
+    left: 10px;
+    color: #FFFFFF; 
+    display: inline-block;
+}
+
+.resultList h4{
+  margin-top: 0px;
+    z-index: 1;
+    position: relative;
+    top: 0px;
+    font-size: 12px;
+    left: 10px;
+    display: inline-block;
+}
+
+.resultItem {
+    width: 220px;
+    line-height: 1.5;
+    font-weight: 300;
+    letter-spacing: .2px;
+    font-size: 12px;
+    padding: 12px;
+    background: #17293F;
+    color: #49BDCA;
+    border-radius: 4px;
+     border-left: 4px solid #17FFF9; 
+    z-index: 10;
+    margin: 5px 0px 5px 0px;
+}
+
+.overview {
+
+}
+
+.card {
+    background-color: #111F2F;
+    width: 1000px;
+    margin: 10px;
+    border-radius: 10px;  
+}
+
+path,
+line {
+  fill: none;
+  stroke: #17B7B3;  
+  shape-rendering: crispEdges;
+}
+
+text {
+  fill:#17B7B3;
+}
+
+.axisClass {
+  fill:#393E44;
+  font-size: 6px; 
+  font-weight: 300; 
+}
+
+.Axis g {
+  fill: none;
+  stroke: #17B7B3;  
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: url(#mainGradient);
+  rx:2;
+  ry:2;
+}
+
+
+.stop1 {
+    stop-color: #43AEBC;  /* Indigo */
+    stop-opacity:0.8;  /* Indigo */
+}
+
+.stop2 {
+    stop-color: #43AEBC;  /* Teal */
+    stop-opacity:0;
+}
+
+.axisAnnotation {
+
+}
+
+.bar {
+  opacity: .8;
+}
+
+.bar:hover {
+/*  opacity: 1;  
+*/  fill: #fff;
+}
+
+.highlight {
+  opacity: 1;
+}
+
+.dark {
+  opacity: 0.2;
+}
+
+.normal {
+  stroke: none;
+}
+
+.normal:hover {
+  stroke:white;
+}
+
+.tooltip {
+  width: 350px;
+  line-height: 1.5;
+  font-weight: 300;
+  letter-spacing: .2px;
+  font-size: 12px;
+  padding: 12px;
+  background: #0C1523;
+  color: #fff;
+  border-radius: 2px;
+  border-left:4px solid #17FFF9;
+}
+
+.detailTooltip {
+  width: 350px;
+  line-height: 1.5;
+  font-weight: 300;
+  letter-spacing: .2px;
+  font-size: 12px;
+  padding: 12px;
+  background: #0C1523;
+  color: #fff;
+  border-radius: 2px;
+  border-left:4px solid #17FFF9;
+  z-index: 100;
+}
+
+.tooltip span{
+  color: #17B7B3;
+  font-weight: 400;
+}
+
+.legend text {
+  fill: #17B7B3;
+}
+
+.flex {
+  display: flex;
+}
+
+.cardMargin {
+  padding-top: 10px;  
+  width: 80%;
+  margin-left: 35px;  
+}
+
+
+/*style for detail page*/
+.detailFG input{
+  background-color: #17293F;
+  border: 1px solid #17B7B3;
+  color: #17B7B3;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px 0px;
+  text-transform: uppercase;
+}
+
+.detailFG input:hover{
+  background-color: #17B7B3;
+  border: 1px solid #17B7B3;
+  color: white;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 5px 10px; 
+  margin: 3px 0px;
+  text-transform: uppercase;
+
+}
+
+.inline {
+  display: inline-block;
+}
+
+.RL {
+  width: 50%;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */ 
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    background-color: #17293F;
+    color: #17B7B3;     
+}
+
+/* The Close Button */
+.close {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.name {
+    display: inline-block;
+    width: 45%;
+}
+
+.name h1 {
+    border-left: 4px solid #00FFF9; 
+}
+
+.basicStat {
+    display: inline-block;
+    width: 50%;
+    margin-left: 30px;  
+}
+
+
+.section {
+  margin: 50px 0px;
+}
+.section h3 {
+  position: relative;
+  font-size: 18px;  
+  font-weight: 500;
+}
+.section h3:after{
+  content: "";
+  height: .05em;
+  position: absolute;
+  top: .5em;
+  right: 5%;
+  width: 80%;
+  background-color: #17B7B3;    
+}
+
+.linebar {
+  color: #17B7B3;
+
+}
+
+.linechartP {
+  margin-left: 10px;
+}
+
+.legendPadding {
+  margin: 20px 0px;
+}
+
+
+#productName {
+  display: inline-block;  
+  width: 60%;
+  border-left: 4px solid #00FFF9; 
+}
+
+#productName p{
+    font-size: 24px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.basicStat div p {
+  font-size: 12px;
+}
+
+
+#heatmap {
+  display: inline-block;
+}
+
+.sentiment {
+  stroke: #17293F;
+}
+
+.sentiment:hover {
+  stroke:white;
+}
+
+#heatmap {
+    display: inline-block;
+    width: 50%;  
+}
+
+#detailReviewList {
+    display: inline-block;
+    width: 45%;
+    margin-top: 15px;
+}
+
+.review {
+    margin: 5px;
+    width: 250px;
+    line-height: 1.5;
+    font-weight: 300;
+    letter-spacing: .2px;
+    font-size: 12px;
+    padding: 12px;
+    background: #0C1523;
+    color: #D6CFCF;
+    border-radius: 2px;
+    border-left: 4px solid #17FFF9;
+}
+
+.reviewContent {
+  display: flex;
+}
+
+
+/*search result*/
+
+/* The Search Result (background) */
+.searchResult {
+    display: none; /* Hidden by default */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #111F2F;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */ 
+}
+
+/* Search Result Content */
+.searchResult-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    background-color: #111F2F;
+    color: #17B7B3;     
+}
+
+.results {
+    background-color: #111F2F;
+
+}
+
+
+
+
+
+
+.titlebar {
+  fill: white;
+  opacity: 0.3;
+}
+
+.boxPlot {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+}
+
+.boxPlot p {
+  width: 100%;
+
+}

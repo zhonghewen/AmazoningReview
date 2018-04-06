@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>Amazoning Review</title>
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet">	
+	<link rel="stylesheet" type="text/css" href="review.css">
+</head>
+<body>
+
+	<div class="leftBar">
+		<div class="overviewTitle leftmenuMargin">
+			<h1>Amazoning Review</h1>
+			<h2 class="bold">Data Visualization of Top 100 Earphone’s Reviews</h2>
+		</div>
+
+		<div class="filters leftmenuMargin bottomSpace paddingTop">
+			<div class="filter">
+				<h2>price</h2>
+				<div id="pricefilter"></div>
+		        <div id="range-price"></div>				
+			</div>
+			<div class="filter">
+				<h2>rating</h2>
+				<div id="ratingfilter"></div>
+		        <div id="range-rating"></div>								
+			</div>
+			<div class="filter">
+				<h2>review amounts</h2>
+				<div id="reviewfilter"></div>
+		        <div id="range-review"></div>								
+			</div>						
+		</div>
+
+		<div class="features leftmenuMargin bottomSpace paddingTop">
+            <h2>features</h2>
+            <div class="featureG">
+                <input class="feature" type="button" value="Battery &radic;">
+                <input class="feature" type="button" value="Bluetooth &radic;">
+                <input class="feature" type="button" value="Comfortability &radic;">
+                <input class="feature" type="button" value="Compatibility &radic;">
+                <input class="feature" type="button" value="Control &radic;">
+                <input class="feature" type="button" value="Durability &radic;">
+                <input class="feature" type="button" value="Noise Cancellation &radic;">   
+                <input class="feature" type="button" value="Price &radic;">  
+                <input class="feature" type="button" value="Stability &radic;">
+                <input class="feature" type="button" value="Service &radic;">
+                <input class="feature" type="button" value="Sound Quality &radic;">
+                <input class="feature" type="button" value="Workout &radic;">
+            </div>			
+		</div>
+
+		<div class="search leftmenuMargin paddingTop">
+			<h2>search</h2>
+			<input type="text" placeholder="&nbsp; E.g. search earbuds" name="search">
+			<p><a><i class="fa fa-search" id="search"></i></a></p>			
+		</div>
+
+		<div class="search leftmenuMargin paddingTop">
+			<div>
+				<div ><h4><span class="resultNum"></span> results</h4></div>
+				<div><h4 >Sort by rating</h4></div>		
+			</div>
+			<div class="resultList scrollbar"></div>		
+		</div>		
+	</div>
+
+	<div class="">
+
+		<div class="overview card">
+			<h3 class="cardMargin" >Overview of earphone</h3>
+			<h2 class="cardMargin"><span class="resultNum"></span>&nbsp; results</h2>
+			<div class="cardMargin">
+				<p class="axisAnnotation">RATING</p>
+				<div>
+					<div></div>
+					<p>Average Rating of Selection</p>
+				</div>
+			</div>
+
+			<div class="barchart cardMargin">			
+				
+			</div>
+		</div>
+
+		<div class="productDetail card">
+			<h3 class="cardMargin ">product details</h3>
+			<div class="flex">
+				<div  class="cardMargin" style="width: 33%;">
+					<h4>Product name</h4>
+					<p class="productName"></p>
+					<h4>price</h4>
+					<p class="productPrice"></p>
+					<h4>average rating</h4>
+					<p class="productRating"></p>
+					<h4>review amounts</h4>
+					<p class="productReview"></p>				
+				</div>
+				<div class="cardMargin" id="rContainer" style="width: 66%;">
+					<h4>review rating</h4>
+<!-- 					<div class="legendSection"></div>
+ -->		            <div class="detailFG">
+		                <input class="detailF" type="button" value="Battery &radic;">
+		                <input class="detailF" type="button" value="Bluetooth &radic;">
+		                <input class="detailF" type="button" value="Comfortability &radic;">
+		                <input class="detailF" type="button" value="Compatibility &radic;">
+		                <input class="detailF" type="button" value="Control &radic;">
+		                <input class="detailF" type="button" value="Durability &radic;">
+		                <input class="detailF" type="button" value="Noise Cancellation &radic;">   
+		                <input class="detailF" type="button" value="Price &radic;">  
+		                <input class="detailF" type="button" value="Stability &radic;">
+		                <input class="detailF" type="button" value="Service &radic;">
+		                <input class="detailF" type="button" value="Sound Quality &radic;">
+		                <input class="detailF" type="button" value="Workout &radic;">
+		            </div>	
+		            <div id="heatmap">
+		            	<svg></svg>
+		            </div>	
+		            <div class="flex">
+		            	<div class="RL">
+		            		<h4>top 3 reviews</h4>
+		            		<div class="topRList"></div>
+		            	</div>
+		            	<div class="RL">
+		            		<h4>bottom 3 reviews</h4>
+		            		<div class="bottomRList"></div>
+		            	</div>	            	
+		            </div>			
+				</div>				
+			</div>
+
+			
+		</div>
+
+		<div class="productComparison card">
+			<h3 class="cardMargin">Product comparison</h3>
+			<div id="radarChart" class="cardMargin"></div>
+			<div class="cardMargin flex">
+				<div class="firstProduct">
+					<h4>Product name</h4>
+					<p id="productName"></p>
+					<h4>price</h4>
+					<p id="productPrice"></p>
+					<h4>average rating</h4>
+					<p id="productPrice"></p>
+					<h4>review amounts</h4>
+					<p id="productPrice"></p>					
+				</div>
+				<div class="secondProduct">
+					<h4>Product name</h4>
+					<p id="productName"></p>
+					<h4>price</h4>
+					<p id="productPrice"></p>
+					<h4>average rating</h4>
+					<p id="productPrice"></p>
+					<h4>review amounts</h4>
+					<p id="productPrice"></p>					
+				</div>				
+			</div>
+		</div>
+
+	</div>
+
+
+
+		<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+	  <!-- Modal content -->
+	  <div class="modal-content">
+	    <span class="close">&times;</span>
+	    <div id="modalBody">
+
+	        <div class="section reviews">
+	            <h2>Sentiment of Reviews</h2>
+	            <div class="buttonLabel">
+	                <input class="theme" type="button" value="All">
+	                <input class="theme" type="button" value="Comfortability">
+	                <input class="theme" type="button" value="Stability">
+	                <input class="theme" type="button" value="Control">
+	                <input class="theme" type="button" value="Sound Quality">
+	                <input class="theme" type="button" value="Noise Cancellation">
+	                <input class="theme" type="button" value="Price">
+	                <input class="theme" type="button" value="Compatibility">
+	                <input class="theme" type="button" value="Durability">
+	                <input class="theme" type="button" value="Service">
+	                <input class="theme" type="button" value="Workout">
+	                <input class="theme" type="button" value="Battery">
+	                <input class="theme" type="button" value="Bluetooth">
+	            </div>
+	            <div class="reviewContent">
+		            <div id="heatmap"></div>
+		            <div id="topList"></div>	            	
+	            </div>
+
+	        </div>
+	    </div>
+	  </div>
+	</div>
+
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+	<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+    <!-- Range slider code -->
+    <script src="d3RangeSlider.js"></script>
+
+    <!-- Range slider style -->
+    <link href="d3RangeSlider.css" rel="stylesheet">
+
+<!-- 	script for line chart
+ --><script type="text/javascript">
+	//position of the chart
+	var margin = {top: 50, right: 50, bottom: 50, left: 50},
+	width = 900 - margin.left - margin.right,
+	height = 250 - margin.top - margin.bottom,
+	gridSize = Math.floor(width/24),
+	legendElementWidth = gridSize * 2,		
+	buckets = 5,
+	colors = ["#FB4A4A","#FCAE91","#FEE5D9","#92C5DE","#0571B0"],
+    padding = 2, // separation between nodes
+    radius = 6;	
+
+	//Set the range
+	var x = d3.scale.ordinal().rangeRoundBands([0, width], .66);
+	var y =d3.scale.linear().range([height,0]);
+	var colorScale = d3.scale.quantile().range(colors);
+	var circleSize = d3.scale.linear().range([5,15]);
+
+	//define the axis
+	var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+    var yAxis = d3.svg.axis()
+    .scale(y)
+    .ticks(5)
+    .orient("left");//tick format: 10-> 10%
+
+
+	//define tooltip
+	var tooltip = d3.tip()
+	  .attr('class', 'tooltip')
+	  .offset([-10, 150])
+	  .html(function(d) {
+	    return ["<strong>Name:</strong><span> " + d.name + "</span><br><strong>Price:</strong> <span>" + d.price + "</span><br><strong>Average Rating:</strong> <span>" + d.avgRating + "</span><br><strong>Amount of Reviews:</strong> <span>" + d.review_num + "</span>"];
+	  });
+
+
+	//define svg element
+	var barchart = d3.select(".barchart").append("svg")
+	    .attr("width", (width + margin.left + margin.right))
+	    .attr("height", (height + margin.top + margin.bottom))
+	  .append("g")
+	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	var mainGradient = barchart.append('defs')
+	.append("linearGradient")
+	.attr('id', 'mainGradient')
+	.attr("x1", "0%")
+    .attr("y1", "80%")
+    .attr("x2", "0%")
+    .attr("y2", "95%");
+
+	mainGradient.append('stop')
+        .attr('class', 'stop1')
+        .attr('offset', '0');	
+
+	mainGradient.append('stop')
+        .attr('class', 'stop2')
+        .attr('offset', '1');			
+
+	barchart.call(tooltip);
+
+
+
+
+	//load data
+	d3.json("dataMar26.json", function(error, data) {
+		if (error) throw error;
+
+		var points = data.dots; //this is a list of products
+
+		//set initial positions
+		points.forEach( function(d) {
+			d.price = d.price;
+			d.avgRating = d.avgRating;
+			d.review_num = d.review_num;
+			d.x = x(d.category);
+			d.name = d.name;
+			d.y = y(d.price);
+			d.asin = d.asin;
+			d.color = colorScale(d.avgRating);
+			d.radius = circleSize(d.review_num);
+			d.keyword = d.keyword;
+			d.reviewList = d.reviewList;
+			d.ratingTrend = d.ratingTrend;
+			d.avgList = d.avgRList;
+		});	
+
+		var priceMin = d3.min( points.map( function(d) { return d.price;}));
+		var priceMax = d3.max( points.map( function(d) { return d.price;}));
+		var ratingMin = d3.min( points.map( function(d) { return d.avgRating;}));
+		var ratingMax = d3.max( points.map( function(d) { return d.avgRating;}));
+		var reviewMin = d3.min( points.map( function(d) { return d.review_num;}));
+		var reviewMax = d3.max( points.map( function(d) { return d.review_num;}));
+
+		//compute domains
+		x.domain(points.map(function(d){return d.name;}));
+        y.domain([ratingMin, ratingMax]);
+        circleSize.domain([0, d3.max( points.map( function(d) {return d.review_num;}))]);
+
+
+        //define filters
+	    var priceRange = { "begin": priceMin, "end":priceMax};
+	    var ratingRange = { "begin": ratingMin, "end":ratingMax};
+
+	    var reviewRange = { "begin": reviewMin, "end":reviewMax};
+
+	    var priceSlider = createD3RangeSlider(priceMin, priceMax, "#pricefilter", false);
+	    var ratingSlider = createD3RangeSlider(ratingMin, ratingMax, "#ratingfilter", false);	
+	    var reviewSlider = createD3RangeSlider(reviewMin, reviewMax, "#reviewfilter", false);	
+
+	    priceSlider.onChange(function(newRange){
+	    	priceRange = newRange;
+	        d3.select("#range-price").html("<h2>&dollar;"+newRange.begin + " &mdash; &dollar;" + newRange.end+"</h2>");
+	        drawbarchart(points, priceRange, ratingRange, reviewRange);
+	    });
+
+	    priceSlider.range(priceMin, priceMax);	
+
+	    ratingSlider.onChange(function(newRange){
+	    	ratingRange = newRange;
+
+	        d3.select("#range-rating").html("<h2>"+newRange.begin + " &mdash; " + newRange.end+"</h2>");
+	        drawbarchart(points, priceRange, ratingRange, reviewRange);
+	    });
+
+	    ratingSlider.range(ratingMin, ratingMax);		    
+
+	    reviewSlider.onChange(function(newRange){
+	    	reviewRange = newRange;
+	        d3.select("#range-review").html("<h2>"+newRange.begin + " &mdash;" + newRange.end+"</h2>");
+	        drawbarchart(points, priceRange, ratingRange, reviewRange);
+	    });
+
+	    reviewSlider.range(reviewMin, reviewMax);		
+
+		function drawbarchart(data, priceRange, ratingRange, reviewRange) {
+
+			barchart.data(data);
+
+			//call the axis
+			barchart.append("g")
+			.attr("class", "x Axis")
+			.attr("transform", "translate(0," + height + ")")
+			.call(xAxis)
+			.selectAll("text")
+			.attr("class", "axisClass" )
+			.style("text-anchor", "start")
+			.attr("dx", "")
+			.attr("dy", "1em")
+			.attr("transform", "rotate(30)" );			
+
+			barchart.append("g")
+			.attr("class", "y Axis")
+			.call(yAxis)
+		    .append("text")
+		      .attr("transform", "rotate(-90)")
+		      .attr("y", 5)
+		      .attr("dy", ".71em")
+		      .style("text-anchor", "end");
+		      // .text("RATING");			
+
+			var bar = barchart.selectAll(".bar")
+			.data(data)
+			.enter().append("rect")
+			.attr("class", function(d) { if((d.price>=priceRange.begin)&&(d.price<=priceRange.end)&&(d.avgRating>=ratingRange.begin)&&(d.avgRating<=ratingRange.end)&&(d.review_num>=reviewRange.begin)&&(d.review_num<=reviewRange.end) ) { console.log(d.price); return "bar highlight";} else {console.log(d.price); return "bar dark";} })
+            .attr("x", function(d) { return x(d.name); })
+            .attr("y", function(d) { return y(d.avgRating); })
+            .attr("width", x.rangeBand())
+	        .attr("height", function(d) { return height - y(d.avgRating); });
+
+
+
+			//define legend
+			var legend = d3.select(".legendSection").append("svg")
+			.selectAll(".legend")
+			.data([0].concat(colorScale.quantiles()), function(d) { return d;});
+
+			legend.enter().append("g")
+			.attr("class", "legend");
+
+			//call the axis
+			legend.append("rect")
+			.attr("x", function(d,i) {return legendElementWidth*i;})
+			.attr("y", 0)
+			.attr("width", legendElementWidth)
+			.attr("height", gridSize/2)
+			.style("fill", function(d,i) {return colors[i];});
+
+			legend.append("text")
+			.attr("class", "mono")
+			.text(function(d) { return ">" + d;})
+			.attr("x", function(d,i) {return legendElementWidth*i;})
+			.attr("y", gridSize);
+
+			legend.exit().remove();			    
+		};
+
+		drawbarchart(points, priceRange, ratingRange, reviewRange);
+
+
+
+		//*******************define mouseenter event: filter according to keywords*********************
+		d3.selectAll(".theme").on("mouseenter", function () {
+
+			//console.log(this.value);
+			var value = this.value;
+
+			barchart.selectAll(".bar")
+                .transition()
+                .duration(500)
+        		.attr("class", function(d) { return "bar "+ containTheme(d.reviewList, value);} );
+        });
+
+		//define filter function
+		function containTheme(reviewList, theme) {
+			var Comfortability = ["fit","comfortable","hurt","uncomfortable","comfy","size"];
+			var Stability = ["fall out","slide","stay","stability"];
+			var Control = ["easy","ease","control","button"];
+			var SoundQuality = ["sound","range", "bass", "music", "hip-pop", "voice", "balanced", "acoustic"];
+			var NoiseCancellation = ["noise", "noisy", "loud", "loudness"];
+			var Price = ["deal", "price", "budget", "value", "money", "cheap", "cost"];
+			var Compatibility = ["compatible", "samsung", "apple", "iphone", "android", "ipad"];
+			var Durability = ["work", "position", "no sound", "stopped", "quality", "broke", "apart", "malfunction", "malfunctioning", "separate", "come off", "durable"];
+			var Service = ["arrive", "arrived", "package", "packed", "return", "support", "review", "warranties", "warranty"];
+			var Workout = ["travelling", "jogging", "gym", "calls", "call", "run", "workouts", "rain", "running", "jog", "exercise", "indoor", "outdoor", "active"];
+			var Battery = ["charged", "charging", "recharge", "battery"];
+			var Bluetooth = ["pair", "connectivity", "bluetooth", "reception", "connection"];	
+
+			var wordList = [];	
+
+			if (theme == "All") {
+				return "normal";
+			} else if (theme == "Comfortability") {
+				wordList = Comfortability;
+			} else if (theme == "Stability") {
+				wordList = Stability;
+			} else if (theme == "Control") {
+				wordList = Control;
+			} else if (theme == "Sound Quality") {
+				wordList = SoundQuality;
+			} else if (theme == "Noise Cancellation") {
+				wordList = NoiseCancellation;
+			} else if (theme == "Price") {
+				wordList = Price;
+			} else if (theme == "Compatibility") {
+				wordList = Compatibility;
+			} else if (theme == "Durability") {
+				wordList = Durability;
+			} else if (theme == "Service") {
+				wordList = Service;
+			} else if (theme == "Workout") {
+				wordList = Workout;
+			} else if (theme == "Battery") {
+				wordList = Battery;
+			} else if (theme == "Bluetooth") {
+				wordList = Bluetooth;
+			}
+
+			for (i=0; i<reviewList.length; i++) {
+				//console.log(reviewList.length);
+				review = reviewList[i].content;
+				review = review.toLowerCase();
+
+				for (j=0; j<wordList.length; j++) {
+					var word = wordList[j];
+					//console.log(comfortability.length);
+
+					if (review.indexOf(word)>=0) {
+						return "highlight";
+						console.log(word);
+					};
+				}
+			};
+
+			return "normal";
+		};
+
+        
+        //define search results
+        var sampleProducts = points.slice(0,6);
+        var search = function(sampleProducts) {
+
+            var resultItem = d3.select(".resultList").selectAll(".resultItem")
+            .data(sampleProducts);
+
+            resultItem.enter().append("div")
+            .attr("class", "resultItem")
+            .html(function(d){return "<h4>PRODUCT NAME</h4><p>"+d.name+"</p><h4>price</h4><p>&nbsp; &dollar;"+d.price+"</p><br><h4>average rating</h4><p>&nbsp;"+d.avgRating+"</p><br><h4>review amounts</h4><p>&nbsp;"+d.review_num+"</p>";});
+
+            resultItem.exit().remove();               
+        };
+
+        search(sampleProducts);		
+
+
+
+		//*******************define product detail********************
+	    d3.select("body").selectAll(".bar")
+	        .on("click",function(d){
+
+	            // var modal = document.getElementById('myModal');
+	            // modal.style.display = "block";
+	            var rContainer = d3.select("#rContainer");
+	            var conWidth = rContainer.node().clientWidth;
+
+	            console.log(conWidth);
+
+	            //position of the chart
+	            var margin = {top: 20, right: 0, bottom: 50, left: 0},
+	            width = conWidth- margin.left - margin.right,
+	            height = 200 - margin.top - margin.bottom;
+	            gridSize = Math.floor(width/30),
+	            legendElementWidth = gridSize * 2,
+	            buckets = 5,
+	            colors = ["#FB4A4A","#FCAE91","#FEE5D9","#92C5DE","#0571B0"];
+
+	            //Set the range
+	            var colorScale = d3.scale.quantile().range(colors);
+
+	            //define tooltip
+	            var tooltip = d3.tip()
+	              .attr('class',  'detailTooltip')
+	              .offset([-10, 175])
+	              .html(function(d) { return ["<span>&ldquo;"+ d.content +"&rdquo;<br>-- by "+ d.author+", "+d.month+ ". "+ d.year+ ", "+ d.rating + " stars</span>"];
+	              });       
+
+	            //define svg element
+	            var heatmap = d3.select("#heatmap").select("svg")
+	                .attr("width", width)
+	                .attr("height", height)
+	              .append("g")
+	                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");        
+
+	            //call tooltip
+	            heatmap.call(tooltip);
+
+
+            	//load data
+                var reviews = d.reviewList;
+                var avgList = d.avgList;
+
+                reviews.forEach( function(d) {
+                    // statements
+                    d.author = d.author;
+                    d.month = d.month;
+                    d.year = d.year;
+                    d.rating = +d.rating;
+                    d.content = d.content;
+                });
+
+
+                //define heat map
+                var heatmapChart = function(theme) {
+
+
+                    //compute colorScale
+                    colorScale.domain( [2,buckets-1,5]);
+
+                    var cards = heatmap.selectAll(".sentiment")
+                    .data(reviews.filter(function(d){return productContainTheme(d.content, theme);}));
+
+                    cards.enter().append("rect")
+                    .attr("x", function(d,i) {return gridSize*(i%24);})
+                    .attr("y", function(d,i) {return gridSize*(parseInt(i/24));})
+                    .attr("rx", 4)
+                    .attr("ry", 4)
+                    .attr("class", "sentiment")
+                    .attr("width", gridSize)
+                    .attr("height", gridSize)
+                    .style("fill", colors[0])
+                    .on("mouseenter", function(d) { tooltip.show(d);})
+                    .on("mouseleave", function(d) { tooltip.hide(d);});
+
+                    cards.transition().duration(500)
+                    .style("fill", function(d) {return colorScale(d.rating);});
+
+                    cards = cards.exit().remove();
+
+                    //append reviews
+                    var top = d3.select(".topRList").selectAll(".review")
+                    .data(reviews.filter(function(d){return productContainTheme(d.content, theme);}).slice(0,3));
+
+                    top.enter().append("div")
+                    .attr("class", "review")
+                    .html(function(d){ return "<span> &ldquo;"+ d.content +"&rdquo; <br>-- by "+ d.author+", "+d.month+ ". "+ d.year+ ", "+ d.rating + " stars</span>";});
+
+                    top.exit().remove();  
+
+
+                    //append reviews
+                    var bottom = d3.select(".bottomRList").selectAll(".review")
+                    .data(reviews.filter(function(d){return productContainTheme(d.content, theme);}).slice(-4,-1));
+
+                    bottom.enter().append("div")
+                    .attr("class", "review")
+                    .html(function(d){ return "<span> &ldquo;"+ d.content +"&rdquo; <br>-- by "+ d.author+", "+d.month+ ". "+ d.year+ ", "+ d.rating + " stars</span>";});
+
+                    bottom.exit().remove();  
+
+                };
+
+                heatmapChart("All");
+
+
+                //append title
+                d3.select(".productName").html(d.name);
+                d3.select(".productPrice").html("&dollar; "+d.price);
+                d3.select(".productRating").html(d.avgRating);
+                d3.select(".productReview").html(d.review_num);
+
+                
+    		//*******************define mouseenter event*********************
+                d3.selectAll(".theme").on("mouseenter", function () {
+                    heatmapChart(this.value);
+                });
+
+                //define function
+                function productContainTheme(review, theme) {
+                    var Comfortability = ["fit","comfortable","hurt","uncomfortable","comfy","size"];
+                    var Stability = ["fall out","slide","stay","stability"];
+                    var Control = ["easy","ease","control","button"];
+                    var SoundQuality = ["sound","range", "bass", "music", "hip-pop", "voice", "balanced", "acoustic"];
+                    var NoiseCancellation = ["noise", "noisy", "loud", "loudness"];
+                    var Price = ["deal", "price", "budget", "value", "money", "cheap", "cost"];
+                    var Compatibility = ["compatible", "samsung", "apple", "iphone", "android", "ipad"];
+                    var Durability = ["work", "position", "no sound", "stopped", "quality", "broke", "apart", "malfunction", "malfunctioning", "separate", "come off", "durable"];
+                    var Service = ["arrive", "arrived", "package", "packed", "return", "support", "review", "warranties", "warranty"];
+                    var Workout = ["travelling", "jogging", "gym", "calls", "call", "run", "workouts", "rain", "running", "jog", "exercise", "indoor", "outdoor", "active"];
+                    var Battery = ["charged", "charging", "recharge", "battery"];
+                    var Bluetooth = ["pair", "connectivity", "bluetooth", "reception", "connection"];               
+
+                    if (theme == "All") {
+                        return true;
+                    } else if (theme == "Comfortability") {
+                        wordList = Comfortability;
+                    } else if (theme == "Stability") {
+                        wordList = Stability;
+                    } else if (theme == "Control") {
+                        wordList = Control;
+                    } else if (theme == "Sound Quality") {
+                        wordList = SoundQuality;
+                    } else if (theme == "Noise Cancellation") {
+                        wordList = NoiseCancellation;
+                    } else if (theme == "Price") {
+                        wordList = Price;
+                    } else if (theme == "Compatibility") {
+                        wordList = Compatibility;
+                    } else if (theme == "Durability") {
+                        wordList = Durability;
+                    } else if (theme == "Service") {
+                        wordList = Service;
+                    } else if (theme == "Workout") {
+                        wordList = Workout;
+                    } else if (theme == "Battery") {
+                        wordList = Battery;
+                    } else if (theme == "Bluetooth") {
+                        wordList = Bluetooth;
+                    }
+
+                    review = review.toLowerCase();
+
+
+                    for (j=0; j<wordList.length; j++) {
+                        var word = wordList[j];
+
+                        if (review.indexOf(word)>=0) {
+                        //  console.log('true');
+                            return true;
+                        };
+                    }
+
+                    return false;
+                };  
+  
+
+            
+        });
+
+
+
+		// //*******************define product detail********************
+	 //    d3.select("#search").on("click",function(d){
+
+	 //            var search = document.getElementById('searchResult');
+	 //            search.style.display = "block";
+
+	 //    });
+			
+	});
+
+    d3.selectAll(".close").on("click",function(){
+        var modal = document.getElementById('myModal');
+        modal.style.display = "none";
+
+        var search = document.getElementById('searchResult');
+        search.style.display = "none";        
+    })
+	</script>
+
+<!-- script for heatmap
+ -->
+ 	<script type="text/javascript">
+ 		
+ 	</script>
+</body>
+</html>
