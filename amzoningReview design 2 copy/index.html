@@ -142,58 +142,58 @@
 					<h4>review rating</h4>
 		            <div class="detailFG">
 		                <div class="container" >
-		                	<input class="detailF" type="checkbox" id="Battery" value="Battery" >
-		                	<label for="Battery">Battery</label>
+		                	<input class="detailF" type="checkbox" id="BatteryD" value="Battery" >
+		                	<label for="BatteryD">Battery</label>
 		                	<span class="checkmark"></span>
 		            	</div>
 		                <div class="container">
-		                	<input class="detailF" type="checkbox" id="Bluetooth" value="Bluetooth" >
-		                	<label for="Bluetooth">Bluetooth</label>
+		                	<input class="detailF" type="checkbox" id="BluetoothD" value="Bluetooth" >
+		                	<label for="BluetoothD">Bluetooth</label>
 		                	<span class="checkmark"></span>
 		            	</div>            	
 		                <div class="container">
-		                	<input class="detailF" type="checkbox" id="Comfortability" value="Comfortability" >
-		                	<label for="Comfortability">Comfortability</label>
+		                	<input class="detailF" type="checkbox" id="ComfortabilityD" value="Comfortability" >
+		                	<label for="ComfortabilityD">Comfortability</label>
 		                	<span class="checkmark"></span>
 		            	</div>
 		                <div class="container">
-		                	<input class="detailF" type="checkbox" id="Compatibility" value="Compatibility" >
-		                	<label for="Compatibility">Compatibility</label>
+		                	<input class="detailF" type="checkbox" id="CompatibilityD" value="Compatibility" >
+		                	<label for="CompatibilityD">Compatibility</label>
 		                	<span class="checkmark"></span>
 		            	</div>
 		                <div class="container">
-		                	<input class="detailF" type="checkbox" id="Control" value="Control" >
-		                	<label for="Control">Control</label>
+		                	<input class="detailF" type="checkbox" id="ControlD" value="Control" >
+		                	<label for="ControlD">Control</label>
 		                	<span class="checkmark"></span>
 		            	</div>
 		                <div class="container">
-		                	<input class="detailF" type="checkbox" id="Durability" value="Durability" >
-		                	<label for="Durability">Durability</label>
+		                	<input class="detailF" type="checkbox" id="DurabilityD" value="Durability" >
+		                	<label for="DurabilityD">Durability</label>
 		                	<span class="checkmark"></span>
 		            	</div>
 		                <div class="container">
-		                	<input class="detailF" type="checkbox" id="NoiseCancellation" value="NoiseCancellation" >
-		                	<label for="NoiseCancellation">Noise Cancellation</label>
+		                	<input class="detailF" type="checkbox" id="NoiseCancellationD" value="NoiseCancellation" >
+		                	<label for="NoiseCancellationD">Noise Cancellation</label>
 		                	<span class="checkmark"></span>
 		            	</div>
 		                <div class="container">
-		                	<input class="detailF" type="checkbox" id="Price" value="Price" >
-		                	<label for="Price">Price</label>
+		                	<input class="detailF" type="checkbox" id="PriceD" value="Price" >
+		                	<label for="PriceD">Price</label>
 		                	<span class="checkmark"></span>
 		            	</div> 
 		                <div class="container">
-		                	<input class="detailF" type="checkbox" id="Stability" value="Stability" >
-		                	<label for="Stability">Stability</label>
+		                	<input class="detailF" type="checkbox" id="StabilityD" value="Stability" >
+		                	<label for="StabilityD">Stability</label>
 		                	<span class="checkmark"></span>
 		            	</div> 
 		                <div class="container">
-		                	<input class="detailF" type="checkbox" id="Service" value="Service" >
-		                	<label for="Service">Service</label>
+		                	<input class="detailF" type="checkbox" id="ServiceD" value="Service" >
+		                	<label for="ServiceD">Service</label>
 		                	<span class="checkmark"></span>
 		            	</div> 
 		                <div class="container">
-		                	<input class="detailF" type="checkbox" id="SoundQuality" value="SoundQuality" >
-		                	<label for="SoundQuality">Sound Quality</label>
+		                	<input class="detailF" type="checkbox" id="SoundQualityD" value="SoundQuality" >
+		                	<label for="SoundQualityD">Sound Quality</label>
 		                	<span class="checkmark"></span>
 		            	</div> 
 		            </div>	
@@ -246,41 +246,6 @@
 	</div>
 
 
-
-		<!-- The Modal -->
-	<div id="myModal" class="modal">
-
-	  <!-- Modal content -->
-	  <div class="modal-content">
-	    <span class="close">&times;</span>
-	    <div id="modalBody">
-
-	        <div class="section reviews">
-	            <h2>Sentiment of Reviews</h2>
-	            <div class="buttonLabel">
-	                <input class="theme" type="button" value="All">
-	                <input class="theme" type="button" value="Comfortability">
-	                <input class="theme" type="button" value="Stability">
-	                <input class="theme" type="button" value="Control">
-	                <input class="theme" type="button" value="Sound Quality">
-	                <input class="theme" type="button" value="Noise Cancellation">
-	                <input class="theme" type="button" value="Price">
-	                <input class="theme" type="button" value="Compatibility">
-	                <input class="theme" type="button" value="Durability">
-	                <input class="theme" type="button" value="Service">
-	                <input class="theme" type="button" value="Workout">
-	                <input class="theme" type="button" value="Battery">
-	                <input class="theme" type="button" value="Bluetooth">
-	            </div>
-	            <div class="reviewContent">
-		            <div id="heatmap"></div>
-		            <div id="topList"></div>	            	
-	            </div>
-
-	        </div>
-	    </div>
-	  </div>
-	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -366,6 +331,7 @@
 
 		var points = data.dots; //this is a list of products
 		var selectedFeature = [];
+		var reviews;
 
 		//set initial positions
 		points.forEach( function(d) {
@@ -432,6 +398,8 @@
 
 	    reviewSlider.range(reviewMin, reviewMax);	
 
+
+
         function updatebarchart (data, priceRange, ratingRange, reviewRange) {
 
 
@@ -440,6 +408,8 @@
 			.attr("class", function(d) { if((d.price>=priceRange.begin)&&(d.price<=priceRange.end)&&(d.avgRating>=ratingRange.begin)&&(d.avgRating<=ratingRange.end)&&(d.review_num>=reviewRange.begin)&&(d.review_num<=reviewRange.end) ) {  return "bar highlight";} else { return "bar dark";} });	  
 
         }
+
+
 
 
 		function drawbarchart(data, priceRange, ratingRange, reviewRange) {
@@ -508,6 +478,158 @@
 		drawbarchart(points, priceRange, ratingRange, reviewRange);
 
 
+
+
+        // var modal = document.getElementById('myModal');
+        // modal.style.display = "block";
+        var rContainer = d3.select("#rContainer");
+        var conWidth = rContainer.node().clientWidth;
+
+        console.log(conWidth);
+
+        //position of the chart
+        var margin = {top: 20, right: 0, bottom: 50, left: 0},
+        width = conWidth- margin.left - margin.right,
+        height = 200 - margin.top - margin.bottom;
+        gridSize = Math.floor(width/30),
+        legendElementWidth = gridSize * 2,
+        buckets = 5,
+        colors = ["#FB4A4A","#FCAE91","#FEE5D9","#92C5DE","#0571B0"];
+
+        //Set the range
+        var colorScale = d3.scale.quantile().range(colors);
+
+        //define tooltip
+        var tooltip = d3.tip()
+          .attr('class',  'detailTooltip')
+          .offset([-10, 175])
+          .html(function(d) { return ["<span>&ldquo;"+ d.content +"&rdquo;<br>-- by "+ d.author+", "+d.month+ ". "+ d.year+ ", "+ d.rating + " stars</span>"];
+          });       
+
+        //define svg element
+        var heatmap = d3.select("#heatmap").select("svg")
+            .attr("width", width)
+            .attr("height", height)
+          .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");        
+
+        //call tooltip
+        heatmap.call(tooltip);
+
+
+    	//load data
+        reviews = d.reviewList;
+
+        reviews.forEach( function(d) {
+            // statements
+            d.author = d.author;
+            d.month = d.month;
+            d.year = d.year;
+            d.rating = +d.rating;
+            d.content = d.content;
+        });
+
+        
+        function updateheatmap (theme) {
+
+            //compute colorScale
+            colorScale.domain( [2,buckets-1,5]);
+
+            var cards = heatmap.selectAll(".sentiment")
+            .data(reviews.filter(function(d){return productContainTheme(d.content, theme);}))
+            .attr("x", function(d,i) {return gridSize*(i%24);})
+            .attr("y", function(d,i) {return gridSize*(parseInt(i/24));})
+            .attr("rx", 4)
+            .attr("ry", 4)
+            .attr("class", "sentiment")
+            .attr("width", gridSize)
+            .attr("height", gridSize)
+            .style("fill", colors[0])
+            .on("mouseenter", function(d) { tooltip.show(d);})
+            .on("mouseleave", function(d) { tooltip.hide(d);});
+
+            cards.transition().duration(500)
+            .style("fill", function(d) {return colorScale(d.rating);});
+
+            cards = cards.exit().remove();
+
+            //append reviews
+            var top = d3.select(".topRList").selectAll(".review")
+            .data(reviews.filter(function(d){return productContainTheme(d.content, theme);}).slice(0,3))
+            .attr("class", "review")
+            .html(function(d){ return "<span> &ldquo;"+ d.content +"&rdquo; <br>-- by "+ d.author+", "+d.month+ ". "+ d.year+ ", "+ d.rating + " stars</span>";});
+
+            top.exit().remove();  
+
+
+            //append reviews
+            var bottom = d3.select(".bottomRList").selectAll(".review")
+            .data(reviews.filter(function(d){return productContainTheme(d.content, theme);}).slice(-4,-1))
+            .attr("class", "review")
+            .html(function(d){ return "<span> &ldquo;"+ d.content +"&rdquo; <br>-- by "+ d.author+", "+d.month+ ". "+ d.year+ ", "+ d.rating + " stars</span>";});
+
+            bottom.exit().remove();    
+
+		 }  
+
+        //define heat map
+        var drawheatmapChart = function(theme) {
+
+
+            //compute colorScale
+            colorScale.domain( [2,buckets-1,5]);
+
+            var cards = heatmap.selectAll(".sentiment")
+            .data(reviews);
+
+            cards.enter().append("rect")
+            .attr("x", function(d,i) {return gridSize*(i%24);})
+            .attr("y", function(d,i) {return gridSize*(parseInt(i/24));})
+            .attr("rx", 4)
+            .attr("ry", 4)
+            .attr("class", "sentiment")
+            .attr("width", gridSize)
+            .attr("height", gridSize)
+            .style("fill", colors[0])
+            .on("mouseenter", function(d) { tooltip.show(d);})
+            .on("mouseleave", function(d) { tooltip.hide(d);});
+
+            cards.transition().duration(500)
+            .style("fill", function(d) {return colorScale(d.rating);});
+
+            cards = cards.exit().remove();
+
+            //append reviews
+            var top = d3.select(".topRList").selectAll(".review")
+            .data(reviews.slice(0,3));
+
+            top.enter().append("div")
+            .attr("class", "review")
+            .html(function(d){ return "<span> &ldquo;"+ d.content +"&rdquo; <br>-- by "+ d.author+", "+d.month+ ". "+ d.year+ ", "+ d.rating + " stars</span>";});
+
+            top.exit().remove();  
+
+
+            //append reviews
+            var bottom = d3.select(".bottomRList").selectAll(".review")
+            .data(reviews.slice(-4,-1));
+
+            bottom.enter().append("div")
+            .attr("class", "review")
+            .html(function(d){ return "<span> &ldquo;"+ d.content +"&rdquo; <br>-- by "+ d.author+", "+d.month+ ". "+ d.year+ ", "+ d.rating + " stars</span>";});
+
+            bottom.exit().remove();  
+
+        };
+
+
+
+
+        //append title
+        d3.select(".productName").html(d.name);
+        d3.select(".productPrice").html("&dollar; "+d.price);
+        d3.select(".productRating").html(d.avgRating);
+        d3.select(".productReview").html(d.review_num);
 
 		//*******************define mouseenter event: filter according to keywords*********************
 
@@ -610,6 +732,95 @@
 			return false;
 		};
 
+
+		//*******************define mouseenter event: filter according to keywords*********************
+
+        d3.selectAll(".detailF").on("click", function () {
+        	console.log(this);
+			var value = this.value;        	
+        	var checked = $(this).prop('checked');
+        	console.log(checked);
+
+        	if (checked == true) {
+        		selectedFeature.push(value);
+        		console.log("when checked, the feature list is:"+selectedFeature);
+        		d3.select(this.parentNode).attr("class", "container selected");
+	
+
+        	} else {
+        		//find index of feature list and remove it
+        		var index = selectedFeature.indexOf(value);
+        		if (index > -1) {
+        			selectedFeature.splice(index, 1);
+        		}
+        		console.log("when unchecked, the feature list is:"+selectedFeature);
+
+        		d3.select(this.parentNode).attr("class", "container");
+        	}
+
+			d3.select("#heatmap").select("svg").selectAll(".sentiment")
+            .data(reviews.filter(function(d){return productContainTheme(d.content, selectedFeature);}));
+
+        });
+
+        //define function
+        function productContainTheme(review, theme) {
+            var Comfortability = ["fit","comfortable","hurt","uncomfortable","comfy","size"];
+            var Stability = ["fall out","slide","stay","stability"];
+            var Control = ["easy","ease","control","button"];
+            var SoundQuality = ["sound","range", "bass", "music", "hip-pop", "voice", "balanced", "acoustic"];
+            var NoiseCancellation = ["noise", "noisy", "loud", "loudness"];
+            var Price = ["deal", "price", "budget", "value", "money", "cheap", "cost"];
+            var Compatibility = ["compatible", "samsung", "apple", "iphone", "android", "ipad"];
+            var Durability = ["work", "position", "no sound", "stopped", "quality", "broke", "apart", "malfunction", "malfunctioning", "separate", "come off", "durable"];
+            var Service = ["arrive", "arrived", "package", "packed", "return", "support", "review", "warranties", "warranty"];
+            var Workout = ["travelling", "jogging", "gym", "calls", "call", "run", "workouts", "rain", "running", "jog", "exercise", "indoor", "outdoor", "active"];
+            var Battery = ["charged", "charging", "recharge", "battery"];
+            var Bluetooth = ["pair", "connectivity", "bluetooth", "reception", "connection"];               
+
+            if (theme == "All") {
+                return true;
+            } else if (theme == "Comfortability") {
+                wordList = Comfortability;
+            } else if (theme == "Stability") {
+                wordList = Stability;
+            } else if (theme == "Control") {
+                wordList = Control;
+            } else if (theme == "Sound Quality") {
+                wordList = SoundQuality;
+            } else if (theme == "Noise Cancellation") {
+                wordList = NoiseCancellation;
+            } else if (theme == "Price") {
+                wordList = Price;
+            } else if (theme == "Compatibility") {
+                wordList = Compatibility;
+            } else if (theme == "Durability") {
+                wordList = Durability;
+            } else if (theme == "Service") {
+                wordList = Service;
+            } else if (theme == "Workout") {
+                wordList = Workout;
+            } else if (theme == "Battery") {
+                wordList = Battery;
+            } else if (theme == "Bluetooth") {
+                wordList = Bluetooth;
+            }
+
+            review = review.toLowerCase();
+
+
+            for (j=0; j<wordList.length; j++) {
+                var word = wordList[j];
+
+                if (review.indexOf(word)>=0) {
+                //  console.log('true');
+                    return true;
+                };
+            }
+
+            return false;
+        };      
+
         
         //define search results
         var sampleProducts = points.slice(0,6);
@@ -633,231 +844,12 @@
 	    d3.select("body").selectAll(".bar")
 	        .on("click",function(d){
 
-	            // var modal = document.getElementById('myModal');
-	            // modal.style.display = "block";
-	            var rContainer = d3.select("#rContainer");
-	            var conWidth = rContainer.node().clientWidth;
-
-	            console.log(conWidth);
-
-	            //position of the chart
-	            var margin = {top: 20, right: 0, bottom: 50, left: 0},
-	            width = conWidth- margin.left - margin.right,
-	            height = 200 - margin.top - margin.bottom;
-	            gridSize = Math.floor(width/30),
-	            legendElementWidth = gridSize * 2,
-	            buckets = 5,
-	            colors = ["#FB4A4A","#FCAE91","#FEE5D9","#92C5DE","#0571B0"];
-
-	            //Set the range
-	            var colorScale = d3.scale.quantile().range(colors);
-
-	            //define tooltip
-	            var tooltip = d3.tip()
-	              .attr('class',  'detailTooltip')
-	              .offset([-10, 175])
-	              .html(function(d) { return ["<span>&ldquo;"+ d.content +"&rdquo;<br>-- by "+ d.author+", "+d.month+ ". "+ d.year+ ", "+ d.rating + " stars</span>"];
-	              });       
-
-	            //define svg element
-	            var heatmap = d3.select("#heatmap").select("svg")
-	                .attr("width", width)
-	                .attr("height", height)
-	              .append("g")
-	                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");        
-
-	            //call tooltip
-	            heatmap.call(tooltip);
-
-
-            	//load data
-                var reviews = d.reviewList;
-                var avgList = d.avgList;
-
-                reviews.forEach( function(d) {
-                    // statements
-                    d.author = d.author;
-                    d.month = d.month;
-                    d.year = d.year;
-                    d.rating = +d.rating;
-                    d.content = d.content;
-                });
-
-
-                //define heat map
-                var drawheatmapChart = function(theme) {
-
-
-                    //compute colorScale
-                    colorScale.domain( [2,buckets-1,5]);
-
-                    var cards = heatmap.selectAll(".sentiment")
-                    .data(reviews.filter(function(d){return productContainTheme(d.content, theme);}));
-
-                    cards.enter().append("rect")
-                    .attr("x", function(d,i) {return gridSize*(i%24);})
-                    .attr("y", function(d,i) {return gridSize*(parseInt(i/24));})
-                    .attr("rx", 4)
-                    .attr("ry", 4)
-                    .attr("class", "sentiment")
-                    .attr("width", gridSize)
-                    .attr("height", gridSize)
-                    .style("fill", colors[0])
-                    .on("mouseenter", function(d) { tooltip.show(d);})
-                    .on("mouseleave", function(d) { tooltip.hide(d);});
-
-                    cards.transition().duration(500)
-                    .style("fill", function(d) {return colorScale(d.rating);});
-
-                    cards = cards.exit().remove();
-
-                    //append reviews
-                    var top = d3.select(".topRList").selectAll(".review")
-                    .data(reviews.filter(function(d){return productContainTheme(d.content, theme);}).slice(0,3));
-
-                    top.enter().append("div")
-                    .attr("class", "review")
-                    .html(function(d){ return "<span> &ldquo;"+ d.content +"&rdquo; <br>-- by "+ d.author+", "+d.month+ ". "+ d.year+ ", "+ d.rating + " stars</span>";});
-
-                    top.exit().remove();  
-
-
-                    //append reviews
-                    var bottom = d3.select(".bottomRList").selectAll(".review")
-                    .data(reviews.filter(function(d){return productContainTheme(d.content, theme);}).slice(-4,-1));
-
-                    bottom.enter().append("div")
-                    .attr("class", "review")
-                    .html(function(d){ return "<span> &ldquo;"+ d.content +"&rdquo; <br>-- by "+ d.author+", "+d.month+ ". "+ d.year+ ", "+ d.rating + " stars</span>";});
-
-                    bottom.exit().remove();  
-
-                };
-
-                drawheatmapChart("All");
-
-
-		        function updateheatmap (theme) {
-
-                    //compute colorScale
-                    colorScale.domain( [2,buckets-1,5]);
-
-                    var cards = heatmap.selectAll(".sentiment")
-                    .data(reviews.filter(function(d){return productContainTheme(d.content, theme);}))
-                    .attr("x", function(d,i) {return gridSize*(i%24);})
-                    .attr("y", function(d,i) {return gridSize*(parseInt(i/24));})
-                    .attr("rx", 4)
-                    .attr("ry", 4)
-                    .attr("class", "sentiment")
-                    .attr("width", gridSize)
-                    .attr("height", gridSize)
-                    .style("fill", colors[0])
-                    .on("mouseenter", function(d) { tooltip.show(d);})
-                    .on("mouseleave", function(d) { tooltip.hide(d);});
-
-                    cards.transition().duration(500)
-                    .style("fill", function(d) {return colorScale(d.rating);});
-
-                    cards = cards.exit().remove();
-
-                    //append reviews
-                    var top = d3.select(".topRList").selectAll(".review")
-                    .data(reviews.filter(function(d){return productContainTheme(d.content, theme);}).slice(0,3))
-                    .attr("class", "review")
-                    .html(function(d){ return "<span> &ldquo;"+ d.content +"&rdquo; <br>-- by "+ d.author+", "+d.month+ ". "+ d.year+ ", "+ d.rating + " stars</span>";});
-
-                    top.exit().remove();  
-
-
-                    //append reviews
-                    var bottom = d3.select(".bottomRList").selectAll(".review")
-                    .data(reviews.filter(function(d){return productContainTheme(d.content, theme);}).slice(-4,-1))
-                    .attr("class", "review")
-                    .html(function(d){ return "<span> &ldquo;"+ d.content +"&rdquo; <br>-- by "+ d.author+", "+d.month+ ". "+ d.year+ ", "+ d.rating + " stars</span>";});
-
-                    bottom.exit().remove();    
-
-		        }         
-
-                updateheatmap("All");
-
-                //append title
-                d3.select(".productName").html(d.name);
-                d3.select(".productPrice").html("&dollar; "+d.price);
-                d3.select(".productRating").html(d.avgRating);
-                d3.select(".productReview").html(d.review_num);
-
-                //define function
-                function productContainTheme(review, theme) {
-                    var Comfortability = ["fit","comfortable","hurt","uncomfortable","comfy","size"];
-                    var Stability = ["fall out","slide","stay","stability"];
-                    var Control = ["easy","ease","control","button"];
-                    var SoundQuality = ["sound","range", "bass", "music", "hip-pop", "voice", "balanced", "acoustic"];
-                    var NoiseCancellation = ["noise", "noisy", "loud", "loudness"];
-                    var Price = ["deal", "price", "budget", "value", "money", "cheap", "cost"];
-                    var Compatibility = ["compatible", "samsung", "apple", "iphone", "android", "ipad"];
-                    var Durability = ["work", "position", "no sound", "stopped", "quality", "broke", "apart", "malfunction", "malfunctioning", "separate", "come off", "durable"];
-                    var Service = ["arrive", "arrived", "package", "packed", "return", "support", "review", "warranties", "warranty"];
-                    var Workout = ["travelling", "jogging", "gym", "calls", "call", "run", "workouts", "rain", "running", "jog", "exercise", "indoor", "outdoor", "active"];
-                    var Battery = ["charged", "charging", "recharge", "battery"];
-                    var Bluetooth = ["pair", "connectivity", "bluetooth", "reception", "connection"];               
-
-                    if (theme == "All") {
-                        return true;
-                    } else if (theme == "Comfortability") {
-                        wordList = Comfortability;
-                    } else if (theme == "Stability") {
-                        wordList = Stability;
-                    } else if (theme == "Control") {
-                        wordList = Control;
-                    } else if (theme == "Sound Quality") {
-                        wordList = SoundQuality;
-                    } else if (theme == "Noise Cancellation") {
-                        wordList = NoiseCancellation;
-                    } else if (theme == "Price") {
-                        wordList = Price;
-                    } else if (theme == "Compatibility") {
-                        wordList = Compatibility;
-                    } else if (theme == "Durability") {
-                        wordList = Durability;
-                    } else if (theme == "Service") {
-                        wordList = Service;
-                    } else if (theme == "Workout") {
-                        wordList = Workout;
-                    } else if (theme == "Battery") {
-                        wordList = Battery;
-                    } else if (theme == "Bluetooth") {
-                        wordList = Bluetooth;
-                    }
-
-                    review = review.toLowerCase();
-
-
-                    for (j=0; j<wordList.length; j++) {
-                        var word = wordList[j];
-
-                        if (review.indexOf(word)>=0) {
-                        //  console.log('true');
-                            return true;
-                        };
-                    }
-
-                    return false;
-                };                  
-    		//*******************define mouseenter event*********************
-       
+                drawheatmapChart("All"); 
+                       
         });
 
 
 
-		// //*******************define product detail********************
-	 //    d3.select("#search").on("click",function(d){
-
-	 //            var search = document.getElementById('searchResult');
-	 //            search.style.display = "block";
-
-	 //    });
-			
 	});
 
     d3.selectAll(".close").on("click",function(){
