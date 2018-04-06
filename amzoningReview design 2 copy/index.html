@@ -530,7 +530,6 @@
 			var Bluetooth = ["pair", "connectivity", "bluetooth", "reception", "connection"];	
 
 			var wordList = [];	
-
 			if (featureList.length == 0) {
 				return true;
 			} else {
@@ -562,13 +561,13 @@
 						wordList = Bluetooth;
 					}
 
-					for (i=0; i<reviewList.length; i++) {
+					for (j=0; j<reviewList.length; j++) {
 						//console.log(reviewList.length);
-						review = reviewList[i].content;
+						review = reviewList[j].content;
 						review = review.toLowerCase();
 
-						for (j=0; j<wordList.length; j++) {
-							var word = wordList[j];
+						for (k=0; k<wordList.length; k++) {
+							var word = wordList[k];
 							//console.log(comfortability.length);
 
 							if (review.indexOf(word)>=0) {
