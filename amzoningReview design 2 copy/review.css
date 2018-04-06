@@ -175,54 +175,6 @@ p {
 
   display: block;
 }
-/*
-.featureG div{
-  border: 1px solid #17B7B3;
-  color: #17B7B3;
-  border-radius: 10px;
-  display: inline-block;
-  padding: 3px 10px 3px 10px;
-  font-size: 10px;
-  margin: 5px 0px;
-  text-transform: uppercase;  
-}
-
-.featureG div:hover{
-  border: 1px solid #17B7B3;
-  background-color: #17B7B3;
-  border: 1px solid #17B7B3;
-  color: white;
-  border-radius: 10px;
-  display: inline-block;
-  padding: 3px 10px 3px 10px;
-  font-size: 10px;
-  margin: 5px 0px;
-  text-transform: uppercase; 
-}
-*/
-/*.featureG input{
-  background-color: #17293F;
-  border: 1px solid #17B7B3;
-  color: #17B7B3;
-  border-radius: 10px;
-  display: inline-block;
-  padding: 3px 10px 3px 10px;
-  font-size: 10px;
-  margin: 5px 0px;
-  text-transform: uppercase;
-}
-
-.featureG input:hover{
-  background-color: #17B7B3;
-  border: 1px solid #17B7B3;
-  color: white;
-  border-radius: 10px;
-  display: inline-block;
-  padding: 3px 10px 3px 10px;
-  font-size: 10px;
-  margin: 5px 0px;
-  text-transform: uppercase;
-}*/
 
 .bottomSpace {
   padding-bottom: 20px;
@@ -429,28 +381,6 @@ text {
 
 
 /*style for detail page*/
-.detailFG input{
-  background-color: #17293F;
-  border: 1px solid #17B7B3;
-  color: #17B7B3;
-  border-radius: 10px;
-  display: inline-block;
-  padding: 5px 10px;
-  margin: 5px 0px;
-  text-transform: uppercase;
-}
-
-.detailFG input:hover{
-  background-color: #17B7B3;
-  border: 1px solid #17B7B3;
-  color: white;
-  border-radius: 10px;
-  display: inline-block;
-  padding: 5px 10px; 
-  margin: 3px 0px;
-  text-transform: uppercase;
-
-}
 
 .inline {
   display: inline-block;

@@ -140,20 +140,62 @@
 				</div>
 				<div class="cardMargin" id="rContainer" style="width: 66%;">
 					<h4>review rating</h4>
-<!-- 					<div class="legendSection"></div>
- -->		            <div class="detailFG">
-		                <input class="detailF" type="button" value="Battery &radic;">
-		                <input class="detailF" type="button" value="Bluetooth &radic;">
-		                <input class="detailF" type="button" value="Comfortability &radic;">
-		                <input class="detailF" type="button" value="Compatibility &radic;">
-		                <input class="detailF" type="button" value="Control &radic;">
-		                <input class="detailF" type="button" value="Durability &radic;">
-		                <input class="detailF" type="button" value="Noise Cancellation &radic;">   
-		                <input class="detailF" type="button" value="Price &radic;">  
-		                <input class="detailF" type="button" value="Stability &radic;">
-		                <input class="detailF" type="button" value="Service &radic;">
-		                <input class="detailF" type="button" value="Sound Quality &radic;">
-		                <input class="detailF" type="button" value="Workout &radic;">
+		            <div class="detailFG">
+		                <div class="container" >
+		                	<input class="detailF" type="checkbox" id="Battery" value="Battery" >
+		                	<label for="Battery">Battery</label>
+		                	<span class="checkmark"></span>
+		            	</div>
+		                <div class="container">
+		                	<input class="detailF" type="checkbox" id="Bluetooth" value="Bluetooth" >
+		                	<label for="Bluetooth">Bluetooth</label>
+		                	<span class="checkmark"></span>
+		            	</div>            	
+		                <div class="container">
+		                	<input class="detailF" type="checkbox" id="Comfortability" value="Comfortability" >
+		                	<label for="Comfortability">Comfortability</label>
+		                	<span class="checkmark"></span>
+		            	</div>
+		                <div class="container">
+		                	<input class="detailF" type="checkbox" id="Compatibility" value="Compatibility" >
+		                	<label for="Compatibility">Compatibility</label>
+		                	<span class="checkmark"></span>
+		            	</div>
+		                <div class="container">
+		                	<input class="detailF" type="checkbox" id="Control" value="Control" >
+		                	<label for="Control">Control</label>
+		                	<span class="checkmark"></span>
+		            	</div>
+		                <div class="container">
+		                	<input class="detailF" type="checkbox" id="Durability" value="Durability" >
+		                	<label for="Durability">Durability</label>
+		                	<span class="checkmark"></span>
+		            	</div>
+		                <div class="container">
+		                	<input class="detailF" type="checkbox" id="NoiseCancellation" value="NoiseCancellation" >
+		                	<label for="NoiseCancellation">Noise Cancellation</label>
+		                	<span class="checkmark"></span>
+		            	</div>
+		                <div class="container">
+		                	<input class="detailF" type="checkbox" id="Price" value="Price" >
+		                	<label for="Price">Price</label>
+		                	<span class="checkmark"></span>
+		            	</div> 
+		                <div class="container">
+		                	<input class="detailF" type="checkbox" id="Stability" value="Stability" >
+		                	<label for="Stability">Stability</label>
+		                	<span class="checkmark"></span>
+		            	</div> 
+		                <div class="container">
+		                	<input class="detailF" type="checkbox" id="Service" value="Service" >
+		                	<label for="Service">Service</label>
+		                	<span class="checkmark"></span>
+		            	</div> 
+		                <div class="container">
+		                	<input class="detailF" type="checkbox" id="SoundQuality" value="SoundQuality" >
+		                	<label for="SoundQuality">Sound Quality</label>
+		                	<span class="checkmark"></span>
+		            	</div> 
 		            </div>	
 		            <div id="heatmap">
 		            	<svg></svg>
@@ -468,17 +510,6 @@
 
 
 		//*******************define mouseenter event: filter according to keywords*********************
-		d3.selectAll(".theme").on("mouseenter", function () {
-
-			// //console.log(this.value);
-			// var value = this.value;
-
-			// barchart.selectAll(".bar")
-   //              .transition()
-   //              .duration(500)
-   //      		.attr("class", function(d) { return "bar "+ containTheme(d.reviewList, value);} );
-        });
-
 
         d3.selectAll(".feature").on("click", function () {
         	console.log(this);
@@ -506,10 +537,6 @@
 			barchart.selectAll(".bar")
 				.attr("class", function(d) { if( containTheme(d.reviewList, selectedFeature)) {  return "bar highlight";} else { return "bar dark";} });	
 			// scatterplot.selectAll(".dot")
-   //              .transition()
-   //              .duration(500)
-   //      		.attr("class", function(d) { return "dot "+ containTheme(d.reviewList, value);} );                  
-
 
         });
 
